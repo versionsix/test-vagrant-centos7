@@ -1,0 +1,17 @@
+---
+- name: Test ansible playbook with vagrant and CentOS/7
+  hosts: test-host
+  become: true
+
+  tasks:
+  - name: Install the latest version of EPEL
+    yum:
+      name: epel-release
+      state: latest
+
+  - name: Update yum 
+    yum:  
+      update_cache: true
+      name: '*'
+      state: latest
+
